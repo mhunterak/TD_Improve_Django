@@ -3,4 +3,4 @@
 omit=
     .env/*
     tests.py
-    mysite/wsgi
+    mysite/wsgi.py
