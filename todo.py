@@ -1,13 +1,3 @@
-# TODO Use django-debug-toolbar to find places where templates aren't properly using
-# inheritance.
-
-
-# TODO Check that forms are using the correct fields and validation. If not, fix.
-
-# EXTRA CREDIT: 
-# TODO Increase test coverage to 90% or above.
-# TODO Add custom form validators
-
 # DONE:
 
 # Use django-debug-toolbar to find places where database queries run too long
@@ -27,3 +17,12 @@
 # Decrease combined query time on all views to 60ms or less.
 
 # Add migrations to correct existing data when data types change.
+
+# Use django-debug-toolbar to find places where templates aren't properly using
+# inheritance.
+
+# Check that forms are using the correct fields and validation. If not, fix.
+
+# EXTRA CREDIT: 
+# Increase test coverage to 90% or above.
+# Add custom form validators

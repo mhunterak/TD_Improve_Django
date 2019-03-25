@@ -1,16 +1,15 @@
 {% extends 'menu/layout.html' %}
 
 {% block title %}
- - All Current Menus
+- All Current Menus
 {% endblock %}
 
 {% block content %}
 <div class="post">
     {% for menu in menus %}
-
     <h1>
         {% if user.is_authenticated %}
-        <a class="btn btn-default" href="{% url 'menu_edit' pk=menu.pk %}">
+        <a class=" btn btn-default" href="{% url 'menu_edit' pk=menu.pk %}">
             <span class="glyphicon glyphicon-pencil"></span></a>
         {% endif %}
         <a href="{% url 'menu_detail' pk=menu.pk %}">{{ menu.season }}</a>
@@ -23,6 +22,5 @@
     </div>
     {% endif %}
     {% endfor %}
-</div>
 </div>
 {% endblock %}

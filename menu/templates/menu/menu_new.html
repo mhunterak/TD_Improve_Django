@@ -1,20 +1,20 @@
 {% extends 'menu/layout.html' %}
-{% load static from staticfiles %}
 
 {% block title %}
-- Change Menu
+- New Menus
 {% endblock %}
 
 {% block content %}
-<form method="POST">
+<h1>New Menu</h1>
+<form method="POST" class="menu-form">{% csrf_token %}
     {% if errors %}
     <ul>
         {% for error in errors %}
         <li>{{ error }}</li>
         {% endfor %}
     </ul>
+    {% endif %}
 
-    <h1>Change menu</h1>
     <div class="row">
         {{ form.season.label }}
         {{ form.season }}
