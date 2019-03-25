@@ -18,12 +18,12 @@ def menu_list(request):
     return render(request, 'menu/list_all_current_menus.html', {'menus': menus})
 
 def menu_detail(request, pk):
-    menu = Menu.objects.all().filter(pk=pk).prefetch_related('items')
-    return render(request, 'menu/menu_detail.html', {'menu': menu[0]})
+    menu = Menu.objects.get(pk=pk)
+    return render(request, 'menu/menu_detail.html', {'menu': menu})
 
 def item_detail(request, pk):
-    item = Item.objects.all().filter(pk=pk)
-    return render(request, 'menu/detail_item.html', {'item': item[0]})
+    item = Item.objects.get(pk=pk)
+    return render(request, 'menu/detail_item.html', {'item': item})
 
 def create_new_menu(request):
     if request.method == "POST":
@@ -43,10 +43,10 @@ def edit_menu(request, pk):
     if request.method == "POST":
         menu.season = request.POST.get('season', '')
         menu.expiration_date = datetime.strptime(request.POST.get('expiration_date', ''), '%m/%d/%Y')
-        menu.items = request.POST.get('items', '')
+        menu.items.set(request.POST.get('items', ''))
         menu.save()
 
     return render(request, 'menu/change_menu.html', {
         'menu': menu,
-        'items': items[0],
+        'items': items,
         })
