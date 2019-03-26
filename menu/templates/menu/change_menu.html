@@ -7,12 +7,16 @@
 
 {% block content %}
 <form method="POST">
-    {% if errors %}
-    <ul>
-        {% for error in errors %}
-        <li>{{ error }}</li>
+    {% csrf_token %}
+    {% if form.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
         {% endfor %}
-    </ul>
+    {% endfor %}
+{% endif %}
 
     <h1>Change menu</h1>
     <div class="row">

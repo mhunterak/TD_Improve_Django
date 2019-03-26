@@ -38,10 +38,9 @@ def create_new_menu(request):
 
 def edit_menu(request, pk):
     menu = get_object_or_404(Menu, pk=pk)
-    form = MenuForm(instance=menu)
+    form = MenuForm(request.POST or None, instance=menu)
     if request.method == "POST":
-        if form.is_valid:
-            form = MenuForm(request.POST)
+        if form.is_valid():
             menu = form.save()
             return redirect('menu_detail', pk=menu.pk)
     return render(request, 'menu/change_menu.html', {

@@ -6,7 +6,8 @@
 
 {% block content %}
 <h1>New Menu</h1>
-<form method="POST" class="menu-form">{% csrf_token %}
+<form method="POST" class="menu-form">
+    {% csrf_token %}
     {% if errors %}
     <ul>
         {% for error in errors %}
